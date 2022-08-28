@@ -1,0 +1,148 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+body {
+  width: 1280px;
+  height: 720px;
+  position: relative;
+}
+.box {
+  width: 50%;
+  height: 80vh;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  filter: blur(0) !important;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+
+.bg-image {
+  background-image: url("./background.jpg");
+  filter: blur(5px);
+  /*Center and scale the image nicely */
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+.container-box {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+}
+.game-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.bi {
+  transform: scale(7);
+  transition: 0.2s;
+  pointer-events: none;
+}
+.game-box:hover .bi {
+  transform: scale(7.5);
+}
+/* CSS variables */
+:root {
+  --bdcolor: rgba(0, 0, 0, 0.25);
+}
+
+.game-box:hover {
+  background: var(--bdcolor);
+}
+.game-box:nth-child(1),
+.game-box:nth-child(4) {
+  border-right: 3px solid var(--bdcolor);
+  border-bottom: 3px solid var(--bdcolor);
+}
+.game-box:nth-child(7) {
+  border-right: 3px solid var(--bdcolor);
+}
+.game-box:nth-child(3),
+.game-box:nth-child(6) {
+  border-left: 3px solid var(--bdcolor);
+  border-bottom: 3px solid var(--bdcolor);
+}
+.game-box:nth-child(9) {
+  border-left: 3px solid var(--bdcolor);
+}
+.game-box:nth-child(2),
+.game-box:nth-child(5) {
+  border-bottom: 3px solid var(--bdcolor);
+}
+
+/* disable clicking event */
+.disable-click {
+  pointer-events: none;
+}
+
+.player-1,
+.player-2 {
+  position: absolute;
+  top: 20px;
+}
+
+.player-1 {
+  left: 22px;
+}
+.player-2 {
+  right: 22px;
+}
+.player-scores {
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background: rgba(0, 0, 0, 0.2);
+  width: 250px;
+}
+
+.restart-mode {
+  position: absolute;
+  bottom: 27px;
+  left: 45%;
+  border-radius: 10px;
+  transition: 0.3s;
+  /* background: rgba(0,0,0,0.1); */
+}
+
+/* winning animation */
+
+.box .hide-winner-text {
+  opacity: 0;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.box .show-winner-text {
+  transition: 0.8s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.box .draw {
+  pointer-events: none;
+}
+
+.box .hide-draw-game {
+  opacity: 0;
+  pointer-events: none;
+}
+.box .show-draw-game {
+  transition: 0.7s;
+  opacity: 1;
+}
+.style-winning-box {
+  color: #0077bf !important;
+  background: #ffc107 !important;
+}
